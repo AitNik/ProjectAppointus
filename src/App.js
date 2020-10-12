@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppNavbar from './components/AppNavbar';
 
 function App() {
   return (
     <div className="App">
+      <AppNavbar />
      <p>Hi! This is main app component</p>
     </div>
   );

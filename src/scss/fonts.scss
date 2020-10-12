@@ -1,0 +1,62 @@
+/**
+ * Set Custom Fonts family and standard font sizes
+ * should be written here.
+ */
+
+@font-face {
+  font-family: 'font-regular';
+  src: url(../assets/fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'font-medium';
+  src: url(../assets/fonts/Montserrat/Montserrat-Medium.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'font-semibold';
+  src: url(../assets/fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'font-light';
+  src: url(../assets/fonts/Montserrat/Montserrat-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'font-bold';
+  src: url(../assets/fonts/Montserrat/Montserrat-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+/** ==================================
+--------------Font family--------------
+======================================*/
+.font-light {
+  font-family: font-light, serif;
+}
+
+.font-regular {
+  font-family: font-regular, serif;
+}
+
+.font-medium {
+  font-family: font-medium, serif;
+}
+
+.font-semibold {
+  font-family: font-semibold, serif;
+}
+
+.font-bold {
+  font-family: font-bold, serif;
+}
+
