@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-     <p>This is main app component</p>
+     <p>Hi! This is main app component</p>
     </div>
   );
 }
