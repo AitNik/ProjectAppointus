@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <AppNavbar />
-     <p>Hi! This is main app component</p>
+     <p>Hi! This is main app component </p>
     </div>
   );
 }
