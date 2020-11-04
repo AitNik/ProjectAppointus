@@ -1,7 +1,6 @@
 import React from 'react';
 import "./App.scss";
 import AppNavbar from './components/AppNavbar';
-import {Row, Col, Button, Form, Navbar, Nav, FormControl} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect  } from 'react-router-dom'
 import LoginSignup from './LoginSignup/LoginSignup'
 import BookHere from './components/BookHere/BookHere'

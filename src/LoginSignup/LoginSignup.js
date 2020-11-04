@@ -1,12 +1,23 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
+import LoginCard from "./LoginCard"
+import SignupCard from './SignUpCard';
 
 function Login() {
+  // Logic for future use
+  // const [LoginType, setLoginType] = useState("login")
   return (
-    <div >
-        <h3>IN Login</h3>
-        <Button>This is a bootstrap button</Button>
-    </div>
+    <>
+    <br/>
+    <Row>
+      <Col md={4}>
+        <LoginCard/>
+      </Col>
+      <Col md={4}>
+        <SignupCard/>
+      </Col>          
+    </Row>
+    </>
   );
 }
 
