@@ -22,7 +22,7 @@ function AppNavbar() {
           <Nav.Link href='/bookhere'>Book Now</Nav.Link>
           <Nav.Link href='/mybookings'>My Bookings</Nav.Link>
         </Nav>
-        <Nav.Link href='/loginsignup'>LoginSignup</Nav.Link>
+        <Nav.Link href='/login'>Login/Signup</Nav.Link>
     </Navbar>
     // <div >
     //  {/* <p>Hi! This is AppNavbar component</p> */}

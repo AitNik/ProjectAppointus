@@ -2,10 +2,11 @@ import React from 'react';
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card} from 'react-bootstrap'
+import { Nav, Navbar, FormControl, NavDropdown } from 'react-bootstrap';
 
 
 
-const Login = () => {
+const LoginCard = () => {
 
   const formValidationSchema = Yup.object({
     userName: Yup.string()
@@ -86,12 +87,13 @@ const Login = () => {
                 <br/>
                 <Card.Text> 
                 New user?  
-                <Card.Link href="#"> Signup now</Card.Link>
+                <Navbar><Card.Link href='/signup'> Signup now</Card.Link></Navbar>
                 </Card.Text>
+    
             </Card.Body>
         </Card>
     </>
   );
 }
 
-export default Login;
+export default LoginCard;

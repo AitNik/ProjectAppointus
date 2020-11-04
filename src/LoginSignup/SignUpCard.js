@@ -1,11 +1,11 @@
 import React from 'react';
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
-import { Button, Col, Form, Row, Card} from 'react-bootstrap'
+import { Button, Col, Form, Row, Card , Nav , Navbar} from 'react-bootstrap'
 
 
 
-const Signup = () => {
+const SignupCard = () => {
     
 
   const formValidationSchema = Yup.object({
@@ -151,7 +151,7 @@ const Signup = () => {
                 <br/>
                 <Card.Text> 
                 Already registered? 
-                <Card.Link href="#"> Login</Card.Link>
+                <Navbar><Card.Link href='/login'>Login</Card.Link></Navbar>
                 </Card.Text>
             </Card.Body>
         </Card>
@@ -159,4 +159,4 @@ const Signup = () => {
   );
 }
 
-export default Signup;
+export default SignupCard;
