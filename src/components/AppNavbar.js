@@ -6,32 +6,41 @@ import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom'
 
 function AppNavbar() {
   return (
-    <div >
-     {/* <p>Hi! This is AppNavbar component</p> */}
-        <Row>
-          <Router>
-          <Link to='/loginsignup'>
-            <Button variant="outline-primary">loginsignup</Button>
-        </Link>
+    <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/home">Appointus</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href='/home'>Home</Nav.Link>
+          <Nav.Link href='/bookhere'>Book Now</Nav.Link>
+          <Nav.Link href='/mybookings'>My Bookings</Nav.Link>
+        </Nav>
+      <Button variant="outline-info">Login</Button>
+    </Navbar>
+    // <div >
+    //  {/* <p>Hi! This is AppNavbar component</p> */}
+    //     <Row>
+    //       <Router>
+    //       <Link to='/loginsignup'>
+    //         <Button variant="outline-primary">loginsignup</Button>
+    //     </Link>
 
-        <Link to='/home'>
-            <Button variant="outline-primary">home</Button>
-        </Link>
+    //     <Link to='/home'>
+    //         <Button variant="outline-primary">home</Button>
+    //     </Link>
 
-        <Link to='/bookhere'>
-            <Button variant="outline-primary">bookhere</Button>
-        </Link>
+    //     <Link to='/bookhere'>
+    //         <Button variant="outline-primary">bookhere</Button>
+    //     </Link>
 
-        <Link to='/client'>
-            <Button variant="outline-primary">client</Button>
-        </Link>
+    //     <Link to='/client'>
+    //         <Button variant="outline-primary">client</Button>
+    //     </Link>
 
-        <Link to='/mybookings'>
-            <Button variant="outline-primary">mybookings</Button>
-        </Link>
-          </Router>
-        </Row>
-    </div>
+    //     <Link to='/mybookings'>
+    //         <Button variant="outline-primary">mybookings</Button>
+    //     </Link>
+    //       </Router>
+    //     </Row>
+    // </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.scss";
 import AppNavbar from './components/AppNavbar';
-import {Row,Col,Button,Form} from 'react-bootstrap'
+import {Row, Col, Button, Form, Navbar, Nav, FormControl} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect  } from 'react-router-dom'
 import Login from './login/login'
 import BookHere from './components/BookHere/BookHere'
@@ -29,9 +29,20 @@ function App() {
           </Route> 
         </Switch>
       </Router>
-      <Login />
+      {/* <Login /> */}
     </div>
   );
 }
 
 export default App;
+
+
+// <Navbar bg="dark" variant="dark">
+//         <Navbar.Brand href="#home">Appointus</Navbar.Brand>
+//         <Nav className="mr-auto">
+//           <Nav.Link href="#home">Home</Nav.Link>
+//           <Nav.Link href="#features">Book Now</Nav.Link>
+//           <Nav.Link href="#pricing">My Bookings</Nav.Link>
+//         </Nav>
+//       <Button variant="outline-info">Login</Button>
+//       </Navbar>
