@@ -3,7 +3,7 @@ import "./App.scss";
 import AppNavbar from './components/AppNavbar';
 import {Row, Col, Button, Form, Navbar, Nav, FormControl} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect  } from 'react-router-dom'
-import Login from './login/login'
+import LoginSignup from './LoginSignup/LoginSignup'
 import BookHere from './components/BookHere/BookHere'
 import HomePage from './components/HomePage/HomePage'
 import Client from './components/Client/Client'
@@ -18,7 +18,7 @@ function App() {
           <Route exact path='/' >
               <Redirect to='/home' />
           </Route>
-          <Route exact path='/loginsignup' component={Login} />
+          <Route exact path='/loginsignup' component={LoginSignup} />
           <Route exact path='/home' component={HomePage} />
           <Route exact path='/bookhere' component={BookHere} />
           <Route exact path='/client' component={Client} />

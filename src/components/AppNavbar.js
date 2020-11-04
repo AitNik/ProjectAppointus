@@ -1,5 +1,5 @@
 import React from 'react';
-// import './AppNavbar.scss';
+import brandIcon from "../assets/Images/brandIcon.png"
 import { Nav, Navbar, Button, Form, FormControl, NavDropdown } from 'react-bootstrap';
 import {Row,Col} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom'
@@ -7,13 +7,22 @@ import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom'
 function AppNavbar() {
   return (
     <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/home">Appointus</Navbar.Brand>
+        <Navbar.Brand href="/home" className={'mr-5'}>
+          <img
+          src={brandIcon}
+          width="30"
+          height="30"
+          className="d-inline-block align-top mr-2"
+          />
+          Appointus
+        </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href='/home'>Home</Nav.Link>
+          {/* <Nav.Link href='/client'>Client</Nav.Link> */}
           <Nav.Link href='/bookhere'>Book Now</Nav.Link>
           <Nav.Link href='/mybookings'>My Bookings</Nav.Link>
         </Nav>
-      <Button variant="outline-info">Login</Button>
+        <Nav.Link href='/loginsignup'>LoginSignup</Nav.Link>
     </Navbar>
     // <div >
     //  {/* <p>Hi! This is AppNavbar component</p> */}
