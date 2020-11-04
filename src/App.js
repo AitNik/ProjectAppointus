@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.scss";
 import AppNavbar from './components/AppNavbar';
 import {Row,Col,Button,Form} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect  } from 'react-router-dom'

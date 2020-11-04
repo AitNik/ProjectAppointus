@@ -1,0 +1,43 @@
+$primary: #0bb7a7 !default;
+$secondary: #b8c1cb !default;
+$tertiary: #364155 !default;
+/*$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;*/
+$light: #ffffff;
+$body-color: #000000;
+$enable-shadows: true;
+
+$gray: #f6f1f1;
+$documentbg: #f5fcfb;
+
+$layout-content-padding-left: 20px;
+$layout-content-padding-right: 10px;
+$layout-content-padding-top: 20px;
+$layout-content-padding-bottom: 15px;
+
+// List of all font sizes
+$font-size-t: 1rem; //16px
+$font-size-s: 1.125rem; //18px
+$font-size-m: 1.25rem; //20px
+$font-size-l: 1.375rem; //22px
+$font-size-xl: 1.5rem; //24px
+$font-size-xxl: 1.5625rem; //25px
+$font-size-xxxl: 1.75rem; //28px
+
+// $text-small: 13px;
+// $text-regular: 15px;
+// $text-medium: 16px;
+// $text-large: 20px;
+// $text-x-large: 22px;
+// $text-xx-large: 24px;
+
+//for toast messages
+$toast-green: #0bb7a7;
+/*$toast-red: $danger;
+$toast-blue: #0086d6;
+$toast-yellow: #ffbb00;*/
