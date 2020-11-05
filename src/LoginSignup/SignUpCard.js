@@ -44,7 +44,7 @@ const SignupCard = () => {
 
   return (
     <>
-        <Card className="w-25 mx-auto rounded-lg">
+        <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '25rem' }}>
             <Card.Body>
                 <Card.Title>Sign Up</Card.Title>
                 <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">

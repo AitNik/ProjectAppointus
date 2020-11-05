@@ -4,10 +4,13 @@ import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card} from 'react-bootstrap'
 
 const CategoryOptions = [
-  { key: 'Select Function', value: '' },
-  { key: 'Category 1', value: 'category1' },
-  { key: 'Category 2', value: 'category2' },
-  { key: 'Category 3', value: 'category3' },
+  { key: 'Select', value: '' },
+  { key: 'Dentist', value: 'dentist' },
+  { key: 'Dietition', value: 'dietition' },
+  { key: 'Gynecologist', value: 'gynecologist' },
+  { key: 'Nutritionist', value: 'nutritionist' },
+  { key: 'Psychologist', value: 'psychologist' },
+  { key: 'Physiotherapist', value: 'physiotherapist' },
 
 ]
 const BookNow = () => {
@@ -21,8 +24,8 @@ const BookNow = () => {
                 .min(10, 'Must be exactly 10 digits')
                 .max(10, 'Must be exactly 10 digits'),
         email: Yup.string()
-            .email('Invalid email')
-            .required('Required'),
+                .email('Invalid email')
+                .required('Required'),
         category: Yup.string().required('Required'),
         details: Yup.string().required('Required')
     })
@@ -44,7 +47,7 @@ const BookNow = () => {
   return (
     <>
         <br/>
-        <Card className="w-25 mx-auto rounded-lg">
+        <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '25rem' }}>
             <Card.Body>
                 <Card.Title>Booking Form</Card.Title>
                   <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
@@ -151,10 +154,10 @@ const BookNow = () => {
                         <Col className="d-flex justify-content-end">
                         <Button className="font-bold" type="submit"
                             onClick={() => {
-                                    console.log("BookNow button pressed")
+                                    console.log("Booking button pressed")
                                     // formikForm.validateForm()
                         }}>
-                            Signup
+                            Book
                         </Button>
                         </Col>
                     </Row>

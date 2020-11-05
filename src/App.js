@@ -8,11 +8,12 @@ import BookHere from './components/BookHere/BookHere'
 import HomePage from './components/HomePage/HomePage'
 import Client from './components/Client/Client'
 import MyBookings from './components/MyBookings/MyBookings'
+import { Row } from 'react-bootstrap';
 
 function App() {
   return (
-    <div >
-      <AppNavbar />
+    <>
+      <AppNavbar fixed="top"/>    
       <Router>
         <Switch>
           <Route exact path='/' >
@@ -30,8 +31,7 @@ function App() {
           </Route> 
         </Switch>
       </Router>
-      {/* <Login /> */}
-    </div>
+    </>
   );
 }
 
