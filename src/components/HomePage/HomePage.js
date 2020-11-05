@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import CardGroup from "react-bootstrap/CardGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import './homepage.scss'
 function HomePage() {
   return (
     <div>
@@ -97,75 +98,54 @@ function HomePage() {
         style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
       ></hr>
       {/*book and appointment*/}
-      <div style={{ textAlign: "left", marginLeft: "10rem" }}>
+      <div style={{ textAlign: "left", marginLeft: "7rem" }}>
         <h3>Book an appointment for an in-clinic consultation</h3>
         <p>Find experienced doctors across all specialties</p>
       </div>
 
-      <CardGroup>
+      <CardGroup style={{margin:"1rem"}}>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={require("./dentist.jpg")}/>
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Dentist</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              Teeth trouble? Schedule a dental checkup now.
             </Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
         </Card>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={require("./gyanecologist.jpg")} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Gyanecologist</Card.Title>
             <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
+              Explore for women's health,pregnancy and infertility treatments.
             </Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
         </Card>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={require("./psyiotherapist.jpg")} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Psyiotherapist</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Problem with a muscle? Get it trained by a expert psyiotherapist.
             </Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
         </Card>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={require("./dietitian.jpg")} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Dietitian/Nutrition</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Get guidance on eating right, weight management and health nutrition.
             </Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
         </Card>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+          <Card.Img variant="top" src={require("./psychologist.jpg")} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Psychologist</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Have some stress and mental problems? Get it treated with the expert psychologist.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -234,6 +214,13 @@ function HomePage() {
       </Carousel>
       {/*about */}
       {/*Logo*/}
+      <footer style={{display:"flex",justifyContent:"space-around"}}>
+            <img src={require("./appointus.png")}/>
+            <div>
+              <h1>For Any Queries</h1>
+              
+            </div>
+      </footer>
     </div>
   );
 }
