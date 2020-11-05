@@ -40,6 +40,9 @@ function MyBooking() {
           <Col xs={12} sm={6} md={4} xl={3}>
           <BookingCard />
           </Col>
+          <Col xs={12} sm={6} md={4} xl={3}>
+          <BookingCard />
+          </Col>
         </Row>
         {/* <div className="d-flex justify-content-around">
           <BookingCard />             
