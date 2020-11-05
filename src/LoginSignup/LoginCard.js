@@ -13,27 +13,29 @@ const LoginCard = () => {
         .min(5, 'Too Short!')
         .max(25, 'Too Long!')
         .required('Required'),
-        password: Yup.string().required('Required')
+    userPassword: Yup.string()
+        .min(8, 'Too Short!')
+        .max(30, 'Too Long!')
+        .required('Required'),
     })
 
   const formikForm = useFormik({
     initialValues: {
       userName: '',
-      password: ''
+      userPassword: ''
     },
     validationSchema: formValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: () => {
         console.log("Login form Submitted")
       }
   })
 
   return (
     <>
-        <Card>
+        <Card className="w-25 mx-auto rounded-lg">
             <Card.Body>
                 <Card.Title>Login</Card.Title>
-                <br/>
-                <Form noValidate onSubmit={formikForm.handleSubmit}>
+                <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
                     <Row>
                         <Col>
                         <Form.Label>User Name</Form.Label>
@@ -58,16 +60,16 @@ const LoginCard = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                         type="password"
-                        name="password"
-                        value={formikForm.values.password}
+                        name="userPassword"
+                        value={formikForm.values.userPassword}
                         onChange={formikForm.handleChange}
                         isValid={
-                            formikForm.touched.password && !formikForm.errors.password
+                            formikForm.touched.userPassword && !formikForm.errors.userPassword
                         }
-                        isInvalid={!!formikForm.errors.password}
+                        isInvalid={!!formikForm.errors.userPassword}
                         />
                         <Form.Control.Feedback type="invalid">
-                        {formikForm.errors.password}
+                        {formikForm.errors.userPassword}
                         </Form.Control.Feedback>
                         </Col>
                     </Row>
@@ -75,19 +77,19 @@ const LoginCard = () => {
                     <Row>
                         <Col className="d-flex justify-content-end">
                         <Button type="submit"
-                            onClick={() => {
-                                    console.log("Login button pressed")
-                                    // formikForm.validateForm()
-                        }}>
+                            // onClick={() => {
+                            //         console.log("Login button pressed")
+                            //         // formikForm.validateForm()
+                            //     }}
+                        >
                             Submit
                         </Button>
                         </Col>
                     </Row>
                 </Form>
-                <br/>
                 <Card.Text> 
                 New user?  
-                <Navbar><Card.Link href='/signup'> Signup now</Card.Link></Navbar>
+                <Card.Link href='/signup'> Sign Up</Card.Link>
                 </Card.Text>
     
             </Card.Body>

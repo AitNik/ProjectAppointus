@@ -14,7 +14,7 @@ function AppNavbar() {
           height="30"
           className="d-inline-block align-top mr-2"
           />
-          Appointus
+          Appointes
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href='/home'>Home</Nav.Link>
@@ -22,7 +22,7 @@ function AppNavbar() {
           <Nav.Link href='/bookhere'>Book Now</Nav.Link>
           <Nav.Link href='/mybookings'>My Bookings</Nav.Link>
         </Nav>
-        <Nav.Link href='/login'>Login/Signup</Nav.Link>
+        <Nav.Link href='/login'>Login / Signup</Nav.Link>
     </Navbar>
     // <div >
     //  {/* <p>Hi! This is AppNavbar component</p> */}

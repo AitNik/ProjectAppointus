@@ -8,23 +8,23 @@ const CategoryOptions = [
   { key: 'Category 1', value: 'category1' },
   { key: 'Category 2', value: 'category2' },
   { key: 'Category 3', value: 'category3' },
+
 ]
 const BookNow = () => {
     
 
   const formValidationSchema = Yup.object({
         name: Yup.string().required('Required'),
-        mobile: Yup.number()
-            .integer('Should be an Integer')
-            .required('Required')
-            // .moreThan(Yup.ref(9999999), 'Should be 10 digit number')
-            // .lessThan(Yup.ref(1000000000), 'Should be 10 digit number')            
-            ,
+        mobile: Yup.string()
+                .required('Required')
+                .matches(/^[0-9]+$/, "Must be only digits")
+                .min(10, 'Must be exactly 10 digits')
+                .max(10, 'Must be exactly 10 digits'),
         email: Yup.string()
             .email('Invalid email')
             .required('Required'),
         category: Yup.string().required('Required'),
-        // details: Yup.string().required('Required')
+        details: Yup.string().required('Required')
     })
 
   const formikForm = useFormik({
@@ -33,7 +33,7 @@ const BookNow = () => {
       mobile: '',
       email: '',
       category: '',
-      // details: ''
+      details: ''
     },
     validationSchema: formValidationSchema,
     onSubmit: (values) => {
@@ -43,12 +43,12 @@ const BookNow = () => {
 
   return (
     <>
-        <Card>
+        <br/>
+        <Card className="w-25 mx-auto rounded-lg">
             <Card.Body>
-                <Card.Title>Sign Up</Card.Title>
-                <br/>
-                  <Form noValidate onSubmit={formikForm.handleSubmit}>
-                    <br/><Row>
+                <Card.Title>Booking Form</Card.Title>
+                  <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
+                    <Row>
                         <Col>
                         <Form.Label>Name</Form.Label>
                         <Form.Control
@@ -134,16 +134,16 @@ const BookNow = () => {
                         <Form.Control
                         as="textarea" rows={3}
                         name="details"
-                        // value={formikForm.values.details}
-                        // onChange={formikForm.handleChange}
-                        // isValid={
-                        //     formikForm.touched.details && !formikForm.errors.details
-                        // }
-                        // isInvalid={!!formikForm.errors.details}
+                        value={formikForm.values.details}
+                        onChange={formikForm.handleChange}
+                        isValid={
+                            formikForm.touched.details && !formikForm.errors.details
+                        }
+                        isInvalid={!!formikForm.errors.details}
                         />
-                        {/* <Form.Control.Feedback type="invalid">
+                        <Form.Control.Feedback type="invalid">
                         {formikForm.errors.details}
-                        </Form.Control.Feedback> */}
+                        </Form.Control.Feedback>
                         </Col>
                     </Row>
                     <br/>
@@ -159,13 +159,13 @@ const BookNow = () => {
                         </Col>
                     </Row>
                   </Form>
-                <br/>
                 <Card.Text> 
-                Already registered? 
-                <Card.Link href="#"> Login</Card.Link>
+                Already booked? <br/>Go to
+                <Card.Link href="#"> My Bookings</Card.Link>
                 </Card.Text>
             </Card.Body>
         </Card>
+        <br/>
     </>
   );
 }

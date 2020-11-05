@@ -10,17 +10,22 @@ const SignupCard = () => {
 
   const formValidationSchema = Yup.object({
         userName: Yup.string()
-            .min(5, 'Too Short!')
-            .max(25, 'Too Long!')
-            .required('Required'),
-        name: Yup.string().required('Required'),
-        mobile: Yup.number()
             .required('Required')
-            .moreThan(Yup.ref('lowerLimit'), 'Should be greater than Lower Limit'),
+            .min(5, 'Too Short!')
+            .max(25, 'Too Long!'),
+        name: Yup.string().required('Required'),
+        mobile: Yup.string()
+                .required('Required')
+                .matches(/^[0-9]+$/, "Must be only digits")
+                .min(10, 'Must be exactly 10 digits')
+                .max(10, 'Must be exactly 10 digits'),
         email: Yup.string()
-            .email('Invalid email')
-            .required('Required'),
-        password: Yup.string().required('Required')
+            .required('Required')
+            .email('Invalid email'),
+        password: Yup.string()
+            .required('Required')
+            .min(8, 'Too Short!')
+            .max(30, 'Too Long!'),
     })
 
   const formikForm = useFormik({
@@ -39,12 +44,11 @@ const SignupCard = () => {
 
   return (
     <>
-        <Card>
+        <Card className="w-25 mx-auto rounded-lg">
             <Card.Body>
                 <Card.Title>Sign Up</Card.Title>
-                <br/>
-                <Form noValidate onSubmit={formikForm.handleSubmit}>
-                <Row>
+                <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
+                    <Row>
                         <Col>
                         <Form.Label>User Name</Form.Label>
                         <Form.Control
@@ -67,7 +71,7 @@ const SignupCard = () => {
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                         type="text"
-                        name="userName"
+                        name="name"
                         value={formikForm.values.name}
                         onChange={formikForm.handleChange}
                         isValid={
@@ -143,15 +147,14 @@ const SignupCard = () => {
                                     console.log("Signup button pressed")
                                     // formikForm.validateForm()
                         }}>
-                            Signup
+                            Submit
                         </Button>
                         </Col>
                     </Row>
                 </Form>
-                <br/>
                 <Card.Text> 
                 Already registered? 
-                <Navbar><Card.Link href='/login'>Login</Card.Link></Navbar>
+                <Card.Link href='/login'> Login</Card.Link>
                 </Card.Text>
             </Card.Body>
         </Card>

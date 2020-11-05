@@ -7,12 +7,11 @@ function Login() {
   // const [LoginType, setLoginType] = useState("login")
   return (
     <>
-    <br/>
-    <Row>
-      <Col md={4}>
-        <LoginCard />
-      </Col>          
-    </Row>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <LoginCard/>
     </>
   );
 }
