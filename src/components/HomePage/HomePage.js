@@ -214,6 +214,9 @@ function HomePage() {
       </Carousel>
       {/*about */}
       {/*Logo*/}
+      <hr
+        style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
+      ></hr>
       <footer style={{display:"flex",justifyContent:"space-around"}}>
             <img src={require("./appointus.png")}/>
             <div>
