@@ -5,26 +5,42 @@ import Button from "react-bootstrap/Button";
 import CardGroup from "react-bootstrap/CardGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import './homepage.scss'
+import "./homepage.scss";
 function HomePage() {
   return (
     <div>
-      {/*search bar */}
-      <InputGroup
-        className="mb-3"
-        style={{ width: "25rem", marginLeft: "5rem", marginTop: "2rem" }}
-      >
-        <InputGroup.Prepend>
-          <InputGroup.Text id="basic-addon1">Location</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl
-          placeholder="Locations Near Me"
-          aria-label="Locations Near Me"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
+      <div className="main-entry" style={{backgroundColor:"#0bb7a7"}}>
+        <div className="data-input">
+          {/*search bar */}
+          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">Location</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="Locations Near Me"
+              aria-label="Locations Near Me"
+              aria-describedby="basic-addon1"
+              
+            />
+          </InputGroup>
+          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">Hospitals</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="Hospitals Near me"
+              aria-label="Hospitals Near me"
+              aria-describedby="basic-addon1"
+            />
+          </InputGroup>
+          <h5>We make sure the heroes are available to you.</h5>
+        </div>
+        <div className="image-part">
+          <img src={require("./8.jpg")} style={{ width: "22rem", height: "30rem",margin:"1rem",float:"right" }}></img>
+        </div>
+      </div>
       {/*react carousel*/}
-      <Carousel>
+      <Carousel style={{ marginTop: "1rem" }}>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -103,14 +119,12 @@ function HomePage() {
         <p>Find experienced doctors across all specialties</p>
       </div>
 
-      <CardGroup style={{margin:"1rem"}}>
+      <CardGroup style={{ margin: "1rem" }}>
         <Card>
-          <Card.Img variant="top" src={require("./dentist.jpg")}/>
+          <Card.Img variant="top" src={require("./dentist.jpg")} />
           <Card.Body>
             <Card.Title>Dentist</Card.Title>
-            <Card.Text>
-              Teeth trouble? Schedule a dental checkup now.
-            </Card.Text>
+            <Card.Text>Teeth trouble? Schedule a dental checkup now.</Card.Text>
           </Card.Body>
         </Card>
         <Card>
@@ -136,7 +150,8 @@ function HomePage() {
           <Card.Body>
             <Card.Title>Dietitian/Nutrition</Card.Title>
             <Card.Text>
-              Get guidance on eating right, weight management and health nutrition.
+              Get guidance on eating right, weight management and health
+              nutrition.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -145,7 +160,8 @@ function HomePage() {
           <Card.Body>
             <Card.Title>Psychologist</Card.Title>
             <Card.Text>
-              Have some stress and mental problems? Get it treated with the expert psychologist.
+              Have some stress and mental problems? Get it treated with the
+              expert psychologist.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -217,12 +233,11 @@ function HomePage() {
       <hr
         style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
       ></hr>
-      <footer style={{display:"flex",justifyContent:"space-around"}}>
-            <img src={require("./appointus.png")}/>
-            <div>
-              <h1>For Any Queries</h1>
-              
-            </div>
+      <footer style={{ display: "flex", justifyContent: "space-around" }}>
+        <img src={require("./appointus.png")} style={{marginBottom:"1rem"}}/>
+        <div>
+          <h1>For Any Queries</h1>
+        </div>
       </footer>
     </div>
   );
