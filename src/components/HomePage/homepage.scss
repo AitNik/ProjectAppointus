@@ -17,6 +17,12 @@
     box-shadow: 0 0 5rem white;
   }
   
+  .appointment
+  {
+    .Card.Img{
+      background-color: black;
+    }
+  }
   
   // card styling
   .card{
@@ -24,7 +30,7 @@
         border: 1px solid black;
     }
     .card:hover{
-      box-shadow: 0 0 0.5rem white;
+      box-shadow: 0 0 0.3rem black;
     }
   
   

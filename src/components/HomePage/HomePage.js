@@ -119,7 +119,7 @@ function HomePage() {
         <p>Find experienced doctors across all specialties</p>
       </div>
 
-      <CardGroup style={{ margin: "1rem" }}>
+      <CardGroup className="appointment" style={{ margin: "1rem" }}>
         <Card>
           <Card.Img variant="top" src={require("./dentist.jpg")} />
           <Card.Body>

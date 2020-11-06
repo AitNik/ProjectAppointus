@@ -15,7 +15,7 @@ function AppNavbar() {
           height="30"
           className="d-inline-block align-top mr-2"
           />
-          Appointes
+          Appointus
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
