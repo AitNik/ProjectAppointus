@@ -2,16 +2,12 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-<<<<<<< HEAD
 import './homepage.scss'
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
 
 
-=======
-import "./homepage.scss";
->>>>>>> 8be194d3772e912c98efaef9c4f13e96307408bd
 function HomePage() {
 
   const formValidationSchema = Yup.object({
