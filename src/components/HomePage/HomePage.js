@@ -2,12 +2,16 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+<<<<<<< HEAD
 import './homepage.scss'
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
 
 
+=======
+import "./homepage.scss";
+>>>>>>> 8be194d3772e912c98efaef9c4f13e96307408bd
 function HomePage() {
 
   const formValidationSchema = Yup.object({
@@ -31,22 +35,38 @@ function HomePage() {
 
   return (
     <div>
-      {/*search bar */}
-      <InputGroup
-        className="mb-3"
-        style={{ width: "25rem", marginLeft: "5rem", marginTop: "2rem" }}
-      >
-        <InputGroup.Prepend>
-          <InputGroup.Text id="basic-addon1">Location</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl
-          placeholder="Locations Near Me"
-          aria-label="Locations Near Me"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
+      <div className="main-entry" style={{backgroundColor:"#0bb7a7"}}>
+        <div className="data-input">
+          {/*search bar */}
+          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">Location</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="Locations Near Me"
+              aria-label="Locations Near Me"
+              aria-describedby="basic-addon1"
+              
+            />
+          </InputGroup>
+          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">Hospitals</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="Hospitals Near me"
+              aria-label="Hospitals Near me"
+              aria-describedby="basic-addon1"
+            />
+          </InputGroup>
+          <h5>We make sure the heroes are available to you.</h5>
+        </div>
+        <div className="image-part">
+          <img src={require("./8.jpg")} style={{ width: "22rem", height: "30rem",margin:"1rem",float:"right" }}></img>
+        </div>
+      </div>
       {/*react carousel*/}
-      <Carousel>
+      <Carousel style={{ marginTop: "1rem" }}>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -125,14 +145,12 @@ function HomePage() {
         <p>Find experienced doctors across all specialties</p>
       </div>
 
-      <CardGroup style={{margin:"1rem"}}>
+      <CardGroup className="appointment" style={{ margin: "1rem" }}>
         <Card>
-          <Card.Img variant="top" src={require("./dentist.jpg")}/>
+          <Card.Img variant="top" src={require("./dentist.jpg")} />
           <Card.Body>
             <Card.Title>Dentist</Card.Title>
-            <Card.Text>
-              Teeth trouble? Schedule a dental checkup now.
-            </Card.Text>
+            <Card.Text>Teeth trouble? Schedule a dental checkup now.</Card.Text>
           </Card.Body>
         </Card>
         <Card>
@@ -158,7 +176,8 @@ function HomePage() {
           <Card.Body>
             <Card.Title>Dietitian/Nutrition</Card.Title>
             <Card.Text>
-              Get guidance on eating right, weight management and health nutrition.
+              Get guidance on eating right, weight management and health
+              nutrition.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -167,7 +186,8 @@ function HomePage() {
           <Card.Body>
             <Card.Title>Psychologist</Card.Title>
             <Card.Text>
-              Have some stress and mental problems? Get it treated with the expert psychologist.
+              Have some stress and mental problems? Get it treated with the
+              expert psychologist.
             </Card.Text>
           </Card.Body>
         </Card>
