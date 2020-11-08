@@ -68,7 +68,7 @@ const BookNow = () => {
                       isValid={
                         formikForm.touched.name && !formikForm.errors.name
                       }
-                      isInvalid={!!formikForm.errors.name}
+                      isInvalid={formikForm.touched.name && !!formikForm.errors.name}
                     />
                     <Form.Control.Feedback type="invalid">
                       {formikForm.errors.name}
@@ -87,7 +87,7 @@ const BookNow = () => {
                       isValid={
                         formikForm.touched.mobile && !formikForm.errors.mobile
                       }
-                      isInvalid={!!formikForm.errors.mobile}
+                      isInvalid={formikForm.touched.mobile && !!formikForm.errors.mobile}
                     />
                     <Form.Control.Feedback type="invalid">
                       {formikForm.errors.mobile}
@@ -106,7 +106,7 @@ const BookNow = () => {
                       isValid={
                         formikForm.touched.email && !formikForm.errors.email
                       }
-                      isInvalid={!!formikForm.errors.email}
+                      isInvalid={formikForm.touched.email && !!formikForm.errors.email}
                     />
                     <Form.Control.Feedback type="invalid">
                       {formikForm.errors.email}
@@ -125,10 +125,9 @@ const BookNow = () => {
                         formikForm.handleChange(e);
                       }}
                       isValid={
-                        formikForm.touched.category &&
-                        !formikForm.errors.category
+                        formikForm.touched.category && !formikForm.errors.category
                       }
-                      isInvalid={!!formikForm.errors.category}
+                      isInvalid={formikForm.touched.category && !!formikForm.errors.category}
                     >
                       {CategoryOptions.map((option) => {
                         return (
@@ -153,7 +152,7 @@ const BookNow = () => {
                       isValid={
                         formikForm.touched.details && !formikForm.errors.details
                       }
-                      isInvalid={!!formikForm.errors.details}
+                      isInvalid={formikForm.touched.details && !!formikForm.errors.details}
                     />
                     <Form.Control.Feedback type="invalid">
                       {formikForm.errors.details}
@@ -166,10 +165,6 @@ const BookNow = () => {
                     <Button
                       className="font-bold"
                       type="submit"
-                      onClick={() => {
-                        console.log("Booking button pressed");
-                        // formikForm.validateForm()
-                      }}
                     >
                       Book
                     </Button>
@@ -179,7 +174,7 @@ const BookNow = () => {
               <Card.Text>
                 Already booked? <br />
                 Go to
-                <Card.Link href="#"> My Bookings</Card.Link>
+                <Card.Link href='/mybookings'> My Bookings</Card.Link>
               </Card.Text>
             </Card.Body>
           </Card>

@@ -18,12 +18,12 @@ function AppNavbar() {
           Appointus
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href='/home'>Home</Nav.Link>
+        <Navbar.Collapse id="responsive-navbar-nav" className="mr-4">
+        <Nav className="ml-auto mr-2">
+          <Nav.Link href='/home' className="mr-3 ml-3">Home</Nav.Link>
           {/* <Nav.Link href='/client'>Client</Nav.Link> */}
-          <Nav.Link href='/bookhere'>Book Now</Nav.Link>
-          <Nav.Link href='/mybookings'>My Bookings</Nav.Link>
+          <Nav.Link href='/bookhere' className="mr-3 ml-3">Book Now</Nav.Link>
+          <Nav.Link href='/mybookings' className="mr-3 ml-3">My Bookings</Nav.Link>
         </Nav>
         <Nav.Link href='/login' className="pl-0">Login / Signup</Nav.Link>
         </Navbar.Collapse>

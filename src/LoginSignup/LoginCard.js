@@ -8,7 +8,7 @@ import { Nav, Navbar, FormControl, NavDropdown } from 'react-bootstrap';
 
 const LoginCard = () => {
 
-  const formValidationSchema = Yup.object({
+  const formValidationSchema = Yup.object().shape({
     userName: Yup.string()
         .min(5, 'Too Short!')
         .max(25, 'Too Long!')
@@ -25,8 +25,8 @@ const LoginCard = () => {
       userPassword: ''
     },
     validationSchema: formValidationSchema,
-    onSubmit: () => {
-        console.log("Login form Submitted")
+    onSubmit: (values) => {
+        console.log("Login form Submitted", values)
       }
   })
 
@@ -43,11 +43,12 @@ const LoginCard = () => {
                         type="text"
                         name="userName"
                         value={formikForm.values.userName}
+                        // onBlur={formikForm.handleBlur}
                         onChange={formikForm.handleChange}
                         isValid={
                             formikForm.touched.userName && !formikForm.errors.userName
                         }
-                        isInvalid={!!formikForm.errors.userName}
+                        isInvalid={formikForm.touched.userName && !!formikForm.errors.userName}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.userName}
@@ -56,17 +57,18 @@ const LoginCard = () => {
                     </Row>
                     <br/>
                     <Row>
-                        <Col>
+                        <Col>    
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                         type="password"
                         name="userPassword"
                         value={formikForm.values.userPassword}
+                        // onBlur={formikForm.handleBlur}
                         onChange={formikForm.handleChange}
                         isValid={
                             formikForm.touched.userPassword && !formikForm.errors.userPassword
                         }
-                        isInvalid={!!formikForm.errors.userPassword}
+                        isInvalid={formikForm.touched.userPassword && !!formikForm.errors.userPassword}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.userPassword}
@@ -77,10 +79,6 @@ const LoginCard = () => {
                     <Row>
                         <Col className="d-flex justify-content-end">
                         <Button type="submit"
-                            // onClick={() => {
-                            //         console.log("Login button pressed")
-                            //         // formikForm.validateForm()
-                            //     }}
                         >
                             Submit
                         </Button>

@@ -59,7 +59,7 @@ const SignupCard = () => {
                         isValid={
                             formikForm.touched.userName && !formikForm.errors.userName
                         }
-                        isInvalid={!!formikForm.errors.userName}
+                        isInvalid={ formikForm.touched.userName && !!formikForm.errors.userName}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.userName}
@@ -77,7 +77,7 @@ const SignupCard = () => {
                         isValid={
                             formikForm.touched.name && !formikForm.errors.name
                         }
-                        isInvalid={!!formikForm.errors.name}
+                        isInvalid={formikForm.touched.name && !!formikForm.errors.name}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.name}
@@ -95,7 +95,7 @@ const SignupCard = () => {
                         isValid={
                             formikForm.touched.mobile && !formikForm.errors.mobile
                         }
-                        isInvalid={!!formikForm.errors.mobile}
+                        isInvalid={formikForm.touched.mobile && !!formikForm.errors.mobile}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.mobile}
@@ -113,7 +113,7 @@ const SignupCard = () => {
                         isValid={
                             formikForm.touched.email && !formikForm.errors.email
                         }
-                        isInvalid={!!formikForm.errors.email}
+                        isInvalid={formikForm.touched.email && !!formikForm.errors.email}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.email}
@@ -132,7 +132,7 @@ const SignupCard = () => {
                         isValid={
                             formikForm.touched.password && !formikForm.errors.password
                         }
-                        isInvalid={!!formikForm.errors.password}
+                        isInvalid={formikForm.touched.password && !!formikForm.errors.password}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.password}
@@ -143,10 +143,7 @@ const SignupCard = () => {
                     <Row>
                         <Col className="d-flex justify-content-end">
                         <Button className="font-bold" type="submit"
-                            onClick={() => {
-                                    console.log("Signup button pressed")
-                                    // formikForm.validateForm()
-                        }}>
+                        >
                             Submit
                         </Button>
                         </Col>

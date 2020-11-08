@@ -271,7 +271,7 @@ function HomePage() {
                         isValid={
                             formikForm.touched.email && !formikForm.errors.email
                         }
-                        isInvalid={!!formikForm.errors.email}
+                        isInvalid={formikForm.touched.email && !!formikForm.errors.email}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.email}
@@ -289,7 +289,7 @@ function HomePage() {
                         isValid={
                             formikForm.touched.yourMessage && !formikForm.errors.yourMessage
                         }
-                        isInvalid={!!formikForm.errors.yourMessage}
+                        isInvalid={formikForm.touched.yourMessage && !!formikForm.errors.yourMessage}
                         />
                         <Form.Control.Feedback type="invalid">
                         {formikForm.errors.yourMessage}
@@ -299,11 +299,7 @@ function HomePage() {
                     <br/>
                     <Row>
                         <Col className="d-flex justify-content-end">
-                        <Button className="font-bold" type="submit"
-                            onClick={() => {
-                                    console.log("Booking button pressed")
-                                    // formikForm.validateForm()
-                        }}>
+                        <Button className="font-bold" type="submit">
                             Submit
                         </Button>
                         </Col>
