@@ -24,6 +24,7 @@ function AppNavbar() {
           {/* <Nav.Link href='/client'>Client</Nav.Link> */}
           <Nav.Link href='/bookhere' className="mr-3 ml-3">Book Now</Nav.Link>
           <Nav.Link href='/mybookings' className="mr-3 ml-3">My Bookings</Nav.Link>
+          <Nav.Link href='/' className="mr-3 ml-3">Contact us</Nav.Link>
         </Nav>
         <Nav.Link href='/login' className="pl-0">Login / Signup</Nav.Link>
         </Navbar.Collapse>

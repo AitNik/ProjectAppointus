@@ -6,6 +6,7 @@ import './homepage.scss'
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
 
 function HomePage() {
@@ -76,6 +77,7 @@ function HomePage() {
             src={require("./Capture2.PNG")}
             style={{ width: "20rem", height: "30rem" }}
           ></img>
+          {/* <Button className="ml-5 mt-n5" onClick={() => alert("clicked")}><Link href="#contactForm">Contact Us</Link></Button> */}
         </Carousel.Item>
       </Carousel>
 
@@ -259,7 +261,7 @@ function HomePage() {
             <img src={require("./appointus.png")}/>
             <div>
               <h1>For Any Queries</h1>
-              <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
+              <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4" id="contactForm">
                     <Row>
                         <Col>
                         <Form.Label>Email</Form.Label>
