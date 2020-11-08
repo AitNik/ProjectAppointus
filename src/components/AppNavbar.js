@@ -20,8 +20,8 @@ function AppNavbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="mr-4">
         <Nav className="ml-auto mr-2">
-          <Nav.Link href='/home' className="mr-3 ml-3">Home</Nav.Link>
           {/* <Nav.Link href='/client'>Client</Nav.Link> */}
+          <Nav.Link href='/home' className="mr-3 ml-3">Home</Nav.Link>
           <Nav.Link href='/bookhere' className="mr-3 ml-3">Book Now</Nav.Link>
           <Nav.Link href='/mybookings' className="mr-3 ml-3">My Bookings</Nav.Link>
           <Nav.Link href='/' className="mr-3 ml-3">Contact us</Nav.Link>
