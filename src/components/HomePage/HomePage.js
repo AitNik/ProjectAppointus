@@ -1,12 +1,34 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import CardGroup from "react-bootstrap/CardGroup";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import './homepage.scss'
+import { Formik, useFormik } from 'formik'
+import * as Yup from 'yup'
+import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
+
+
 function HomePage() {
+
+  const formValidationSchema = Yup.object({
+    email: Yup.string()
+        .required('Required')
+        .email('Invalid email'),
+    yourMessage: Yup.string()
+        .required('Required')
+  })
+
+  const formikForm = useFormik({
+  initialValues: {
+    email: '',
+    yourMessage: ''
+  },
+  validationSchema: formValidationSchema,
+  onSubmit: (values) => {
+      console.log("Signup form Submitted")
+    }
+  })
+
   return (
     <div>
       {/*search bar */}
@@ -221,6 +243,56 @@ function HomePage() {
             <img src={require("./appointus.png")}/>
             <div>
               <h1>For Any Queries</h1>
+              <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
+                    <Row>
+                        <Col>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                        type="email"
+                        name="email"
+                        value={formikForm.values.email}
+                        onChange={formikForm.handleChange}
+                        isValid={
+                            formikForm.touched.email && !formikForm.errors.email
+                        }
+                        isInvalid={!!formikForm.errors.email}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                        {formikForm.errors.email}
+                        </Form.Control.Feedback>
+                        </Col>
+                    </Row>
+                    <br/><Row>
+                        <Col>
+                        <Form.Label>Your Message</Form.Label>
+                        <Form.Control
+                        as="textarea" rows={3}
+                        name="yourMessage"
+                        value={formikForm.values.yourMessage}
+                        onChange={formikForm.handleChange}
+                        isValid={
+                            formikForm.touched.yourMessage && !formikForm.errors.yourMessage
+                        }
+                        isInvalid={!!formikForm.errors.yourMessage}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                        {formikForm.errors.yourMessage}
+                        </Form.Control.Feedback>
+                        </Col>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Col className="d-flex justify-content-end">
+                        <Button className="font-bold" type="submit"
+                            onClick={() => {
+                                    console.log("Booking button pressed")
+                                    // formikForm.validateForm()
+                        }}>
+                            Submit
+                        </Button>
+                        </Col>
+                    </Row>
+                  </Form>
               
             </div>
       </footer>

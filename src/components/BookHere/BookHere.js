@@ -164,7 +164,7 @@ const BookNow = () => {
                   </Form>
                 <Card.Text> 
                 Already booked? <br/>Go to
-                <Card.Link href="#"> My Bookings</Card.Link>
+                <Card.Link href="/mybookings"> My Bookings</Card.Link>
                 </Card.Text>
             </Card.Body>
         </Card>
