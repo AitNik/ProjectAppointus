@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button, Col, Form, Row, Card } from "react-bootstrap";
 
@@ -43,7 +43,7 @@ const BookNow = () => {
     <>
       <div style={{display:"flex",flexDirection:"row",justifyContent:"space-around"}}>
         <div>
-        <img src={require("./doctor.png")} style={{width:"40rem"}}></img>
+        <img alt="" src={require("./doctor.png")} style={{width:"40rem"}}></img>
         </div>
         <div style={{top:0}}>
           <Card

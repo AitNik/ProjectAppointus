@@ -3,10 +3,9 @@ import Carousel from "react-bootstrap/Carousel";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import './homepage.scss'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
-import { Link } from "react-router-dom";
 
 
 function HomePage() {
@@ -59,20 +58,20 @@ function HomePage() {
           <h5>We make sure the heroes are available to you.</h5>
         </div>
         <div className="image-part">
-          <img src={require("./8.jpg")} style={{ width: "22rem", height: "30rem",margin:"1rem",float:"right" }}></img>
+          <img alt="" src={require("./8.jpg")} style={{ width: "22rem", height: "30rem",margin:"1rem",float:"right" }}></img>
         </div>
       </div>
       {/*react carousel*/}
       <Carousel style={{ marginTop: "1rem" }}>
         <Carousel.Item>
-          <img
+          <img alt=""
             className="d-block w-100"
             src={require("./Doctor1.PNG")}
             style={{ width: "20rem", height: "30rem" }}
           ></img>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <img alt=""
             className="d-block w-100"
             src={require("./Capture2.PNG")}
             style={{ width: "20rem", height: "30rem" }}
@@ -258,7 +257,7 @@ function HomePage() {
         style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
       ></hr>
       <footer style={{display:"flex",justifyContent:"space-around"}}>
-            <img src={require("./appointus.png")}/>
+            <img alt="" src={require("./appointus.png")}/>
             <div>
               <h1>For Any Queries</h1>
               <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4" id="contactForm">

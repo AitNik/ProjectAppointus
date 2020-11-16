@@ -1,19 +1,19 @@
 import React from 'react';
 import "./App.scss";
 import AppNavbar from './components/AppNavbar';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect  } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
 import Login from './LoginSignup/Login'
 import Signup from './LoginSignup/Signup'
-import BookHere from './components/BookHere/BookHere'
+import BookNow from './components/BookNow/BookNow'
 import HomePage from './components/HomePage/HomePage'
 import Client from './components/Client/Client'
 import MyBookings from './components/MyBookings/MyBookings'
-import { Row } from 'react-bootstrap';
 
 function App() {
   return (
     <>
       <AppNavbar fixed="top"/>    
+      <div className="main">
       <Router>
         <Switch>
           <Route exact path='/' >
@@ -22,7 +22,7 @@ function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/home' component={HomePage} />
-          <Route exact path='/bookhere' component={BookHere} />
+          <Route exact path='/booknow' component={BookNow} />
           <Route exact path='/client' component={Client} />
           <Route exact path='/mybookings' component={MyBookings} />
 
@@ -31,6 +31,7 @@ function App() {
           </Route> 
         </Switch>
       </Router>
+      </div>
     </>
   );
 }

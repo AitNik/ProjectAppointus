@@ -8,6 +8,7 @@ function AppNavbar() {
     <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" style={{ zIndex: '1024!important' }}>
         <Navbar.Brand href="/home" className={'mr-3'}>
           <img
+          alt=""
           src={brandIcon}
           width="30"
           height="30"
@@ -20,7 +21,7 @@ function AppNavbar() {
         <Nav className="ml-auto mr-2">
           {/* <Nav.Link href='/client'>Client</Nav.Link> */}
           {/* <Nav.Link href='/home' className="mr-2 ml-2">Home</Nav.Link> */}
-          <Nav.Link href='/bookhere' className="mr-2 ml-2">Book Now</Nav.Link>
+          <Nav.Link href='/booknow' className="mr-2 ml-2">Book Now</Nav.Link>
           <Nav.Link href='/mybookings' className="mr-2 ml-2">My Bookings</Nav.Link>
           <Nav.Link href='/' className="mr-2 ml-2">About us</Nav.Link>
         </Nav>
