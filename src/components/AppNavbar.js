@@ -1,8 +1,6 @@
 import React from 'react';
 import brandIcon from "../assets/Images/brandIcon.png"
-import { Nav, Navbar, Button, Form, FormControl, NavDropdown } from 'react-bootstrap';
-import {Row,Col} from 'react-bootstrap'
-import { BrowserRouter as Router, Switch, Route, Link  } from 'react-router-dom'
+import { Nav, Navbar } from 'react-bootstrap';
 
 function AppNavbar() {
   return (
@@ -21,10 +19,10 @@ function AppNavbar() {
         <Navbar.Collapse id="responsive-navbar-nav" className="mr-4">
         <Nav className="ml-auto mr-2">
           {/* <Nav.Link href='/client'>Client</Nav.Link> */}
-          <Nav.Link href='/home' className="mr-3 ml-3">Home</Nav.Link>
-          <Nav.Link href='/bookhere' className="mr-3 ml-3">Book Now</Nav.Link>
-          <Nav.Link href='/mybookings' className="mr-3 ml-3">My Bookings</Nav.Link>
-          <Nav.Link href='/' className="mr-3 ml-3">Contact us</Nav.Link>
+          {/* <Nav.Link href='/home' className="mr-2 ml-2">Home</Nav.Link> */}
+          <Nav.Link href='/bookhere' className="mr-2 ml-2">Book Now</Nav.Link>
+          <Nav.Link href='/mybookings' className="mr-2 ml-2">My Bookings</Nav.Link>
+          <Nav.Link href='/' className="mr-2 ml-2">About us</Nav.Link>
         </Nav>
         <Nav.Link href='/login' className="pl-0">Login / Signup</Nav.Link>
         </Navbar.Collapse>

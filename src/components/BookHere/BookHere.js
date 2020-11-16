@@ -47,7 +47,7 @@ const BookNow = () => {
         </div>
         <div style={{top:0}}>
           <Card
-            className="mx-auto rounded-lg"
+            className="mx-auto rounded-lg mt-0"
             style={{ minwidth: "12rem", maxWidth: "25rem",width:"23rem" }}
           >
             <Card.Body>
@@ -57,7 +57,7 @@ const BookNow = () => {
                 onSubmit={formikForm.handleSubmit}
                 className="mt-4"
               >
-                <Row>
+                <Row className="mt-2">
                   <Col>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
@@ -75,8 +75,8 @@ const BookNow = () => {
                     </Form.Control.Feedback>
                   </Col>
                 </Row>
-                <br />
-                <Row>
+                {/* <br /> */}
+                <Row className="mt-2">
                   <Col>
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control
@@ -94,8 +94,8 @@ const BookNow = () => {
                     </Form.Control.Feedback>
                   </Col>
                 </Row>
-                <br />
-                <Row>
+                {/* <br /> */}
+                <Row className="mt-2">
                   <Col>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
@@ -113,8 +113,8 @@ const BookNow = () => {
                     </Form.Control.Feedback>
                   </Col>
                 </Row>
-                <br />
-                <Row>
+                {/* <br /> */}
+                <Row className="mt-2">
                   <Col>
                     <Form.Label>Category</Form.Label>
                     <Form.Control
@@ -139,8 +139,8 @@ const BookNow = () => {
                     </Form.Control>
                   </Col>
                 </Row>
-                <br />
-                <Row>
+                {/* <br /> */}
+                <Row className="mt-2">
                   <Col>
                     <Form.Label>Details</Form.Label>
                     <Form.Control
@@ -153,6 +153,7 @@ const BookNow = () => {
                         formikForm.touched.details && !formikForm.errors.details
                       }
                       isInvalid={formikForm.touched.details && !!formikForm.errors.details}
+                      style={{resize : "none"}}
                     />
                     <Form.Control.Feedback type="invalid">
                       {formikForm.errors.details}
