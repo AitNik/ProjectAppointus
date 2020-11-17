@@ -2,6 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import {DJANGO_SERVER_ADDRESS} from '../server'
+import axios from 'axios'
 
 
 
@@ -26,8 +29,32 @@ const LoginCard = () => {
     validationSchema: formValidationSchema,
     onSubmit: (values) => {
         console.log("Login form Submitted", values)
+        validateUser();
       }
   })
+
+  const validateUser = () => {
+    var data = JSON.stringify({
+        "username": formikForm.values.userName,
+        "password": formikForm.values.userPassword
+    });
+
+    var config = {
+        method: 'post',
+        url: `${DJANGO_SERVER_ADDRESS}/login/`,
+        headers:{'Content-Type':'application/json'},
+        data : data
+    };
+    
+    axios(config)
+    .then((resp) => {
+        console.log(resp);
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("Login Failed")
+    })
+  }
 
   return (
     <>
@@ -86,7 +113,7 @@ const LoginCard = () => {
                 </Form>
                 <Card.Text> 
                 New user?  
-                <Card.Link href='/signup'> Sign Up</Card.Link>
+                <Link to='/signup'> Sign Up</Link>
                 </Card.Text>
     
             </Card.Body>

@@ -2,6 +2,7 @@ import React from 'react';
 import "./App.scss";
 import AppNavbar from './components/AppNavbar';
 import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Login from './LoginSignup/Login'
 import Signup from './LoginSignup/Signup'
 import BookNow from './components/BookNow/BookNow'
@@ -9,34 +10,55 @@ import HomePage from './components/HomePage/HomePage'
 import Client from './components/Client/Client'
 import MyBookings from './components/MyBookings/MyBookings'
 
-function App() {
+function App(props) {
+
+  const ProtectedRoute = ({ component: Component, ...rest }) => {
+    return (
+            <Route
+                {...rest}
+                render={prop => {
+                    if(props.logged_in){
+                        return <Component {...prop} />
+                    } 
+                    else{
+                        return <Redirect to='/home' />
+                    }
+                }}
+            />
+    )
+  }
+
   return (
-    <>
-      <AppNavbar fixed="top"/>    
+    <Router>
+          <AppNavbar className="navbar" />
       <div className="main">
-      <Router>
+      
+      
         <Switch>
-          <Route exact path='/' >
-              <Redirect to='/home' />
-          </Route>
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/home' component={HomePage} />
-          <Route exact path='/booknow' component={BookNow} />
+          <ProtectedRoute exact path='/booknow' component={BookNow} />
           <Route exact path='/client' component={Client} />
-          <Route exact path='/mybookings' component={MyBookings} />
+          <ProtectedRoute exact path='/mybookings' component={MyBookings} />
 
           <Route path='*'>
               <Redirect to='/home' />
           </Route> 
         </Switch>
-      </Router>
+      
       </div>
-    </>
+      </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    logged_in: state.login.logged_in
+  };
+};
+
+export default connect(mapStateToProps)(App);
 
 
 // <Navbar bg="dark" variant="dark">

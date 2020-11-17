@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
 const login = {
-        logged_in: true,
-        name: "Aman Saini",
-        username: "amansaini7999",  
+        logged_in: false,
+        name: "Anutosh Kumar",
+        username: "123456",  
 }
 
 function loginReducer(state = login, action) {
@@ -29,39 +29,9 @@ function loginReducer(state = login, action) {
     }
 }
 
-const saveddata = {
-    modelselected: "",
-    development_data: 1,
-    monitoring_data: ["monitoring1","monitoring2","monitoring3"],
-    models: ["Dmodel1","Dmodel2","Dmodel3"]
-}
-
-function datastore(state = saveddata, action) {
-    switch(action.type){
-        case "SELECT_MODEL": return {
-            ...state,
-            modelselected: action.payload
-        }
-        case "STORE_DEVELOPMENT": return {
-            ...state,
-            development_data: action.payload
-        }
-        case "STORE_MONITORING": return {
-            ...state,
-            monitoring_data: action.payload
-        }
-        case "STORE_MODELS": return {
-            ...state,
-            models: action.payload
-        }   
-        
-        default: return state
-    }
-}
 
 const Reducer = combineReducers({
-    login: loginReducer,
-    saved: datastore
+    login: loginReducer
 })
 
 const store = createStore(Reducer)
