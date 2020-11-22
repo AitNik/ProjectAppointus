@@ -283,72 +283,71 @@ function HomePage() {
           justifyContent: "space-around",
           alignItems: "center",
         }}
+      ><div>
+      <h1>For Any Queries</h1>
+      <Form
+        noValidate
+        onSubmit={formikForm.handleSubmit}
+        className="mt-4"
+        id="contactForm"
       >
+        <Row>
+          <Col>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={formikForm.values.email}
+              onChange={formikForm.handleChange}
+              isValid={formikForm.touched.email && !formikForm.errors.email}
+              isInvalid={
+                formikForm.touched.email && !!formikForm.errors.email
+              }
+            />
+            <Form.Control.Feedback type="invalid">
+              {formikForm.errors.email}
+            </Form.Control.Feedback>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <Form.Label>Your Message</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              name="yourMessage"
+              value={formikForm.values.yourMessage}
+              onChange={formikForm.handleChange}
+              isValid={
+                formikForm.touched.yourMessage &&
+                !formikForm.errors.yourMessage
+              }
+              isInvalid={
+                formikForm.touched.yourMessage &&
+                !!formikForm.errors.yourMessage
+              }
+            />
+            <Form.Control.Feedback type="invalid">
+              {formikForm.errors.yourMessage}
+            </Form.Control.Feedback>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col className="d-flex justify-content-end">
+            <Button className="font-bold" type="submit">
+              Submit
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+      </div>
         <img
           alt=""
           src={require("./appointus.png")}
           style={{ padding: "3rem" }}
         />
-        <div>
-          <h1>For Any Queries</h1>
-          <Form
-            noValidate
-            onSubmit={formikForm.handleSubmit}
-            className="mt-4"
-            id="contactForm"
-          >
-            <Row>
-              <Col>
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  value={formikForm.values.email}
-                  onChange={formikForm.handleChange}
-                  isValid={formikForm.touched.email && !formikForm.errors.email}
-                  isInvalid={
-                    formikForm.touched.email && !!formikForm.errors.email
-                  }
-                />
-                <Form.Control.Feedback type="invalid">
-                  {formikForm.errors.email}
-                </Form.Control.Feedback>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col>
-                <Form.Label>Your Message</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  name="yourMessage"
-                  value={formikForm.values.yourMessage}
-                  onChange={formikForm.handleChange}
-                  isValid={
-                    formikForm.touched.yourMessage &&
-                    !formikForm.errors.yourMessage
-                  }
-                  isInvalid={
-                    formikForm.touched.yourMessage &&
-                    !!formikForm.errors.yourMessage
-                  }
-                />
-                <Form.Control.Feedback type="invalid">
-                  {formikForm.errors.yourMessage}
-                </Form.Control.Feedback>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col className="d-flex justify-content-end">
-                <Button className="font-bold" type="submit">
-                  Submit
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-        </div>
       </footer>
     </div>
   );
