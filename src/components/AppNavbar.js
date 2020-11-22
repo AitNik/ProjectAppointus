@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 function AppNavbar(props) {
   return (
   <>
-    <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" style={{ zIndex: '1024!important' }}>
+    <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" style={{ zIndex: '1024!important',color:"white" }}>
         <Navbar.Brand href="/home" className={'mr-3'}>
           <img
             alt=""

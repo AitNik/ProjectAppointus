@@ -2,39 +2,36 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import './homepage.scss'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import { Button, Col, Form, Row, Card, CardGroup} from 'react-bootstrap'
-
-
+import "./homepage.scss";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Button, Col, Form, Row, Card, CardGroup } from "react-bootstrap";
+// import { BsCircle } from "react-icons/bs";
 function HomePage() {
-
   const formValidationSchema = Yup.object({
-    email: Yup.string()
-        .required('Required')
-        .email('Invalid email'),
-    yourMessage: Yup.string()
-        .required('Required')
-  })
+    email: Yup.string().required("Required").email("Invalid email"),
+    yourMessage: Yup.string().required("Required"),
+  });
 
   const formikForm = useFormik({
-  initialValues: {
-    email: '',
-    yourMessage: ''
-  },
-  validationSchema: formValidationSchema,
-  onSubmit: (values) => {
-      console.log("Signup form Submitted")
-    }
-  })
+    initialValues: {
+      email: "",
+      yourMessage: "",
+    },
+    validationSchema: formValidationSchema,
+    onSubmit: (values) => {
+      console.log("Signup form Submitted");
+    },
+  });
 
   return (
-    <div>
-      <div className="main-entry" style={{backgroundColor:"#0bb7a7"}}>
+    <div className="main-body" style={{ backgroundColor: "white" }}>
+      <div className="main-entry">
         <div className="data-input">
           {/*search bar */}
-          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+          <InputGroup
+            style={{ margin: "1rem", width: "30rem", padding: "1rem" }}
+          >
             <InputGroup.Prepend>
               <InputGroup.Text id="basic-addon1">Location</InputGroup.Text>
             </InputGroup.Prepend>
@@ -42,10 +39,12 @@ function HomePage() {
               placeholder="Locations Near Me"
               aria-label="Locations Near Me"
               aria-describedby="basic-addon1"
-              
+              // style={{padding:"1rem"}}
             />
           </InputGroup>
-          <InputGroup style={{ margin: "1rem",width:"30rem" }}>
+          <InputGroup
+            style={{ margin: "1rem", width: "30rem", padding: "1rem" }}
+          >
             <InputGroup.Prepend>
               <InputGroup.Text id="basic-addon1">Hospitals</InputGroup.Text>
             </InputGroup.Prepend>
@@ -55,13 +54,22 @@ function HomePage() {
               aria-describedby="basic-addon1"
             />
           </InputGroup>
-          <h5>We make sure the heroes are available to you.</h5>
+          <h2>We make sure the heroes are available to you</h2>
         </div>
         <div className="image-part">
-          <img alt="" src={require("./8.jpg")} style={{ width: "22rem", height: "30rem",margin:"1rem",float:"right" }}></img>
+          <img
+            alt=""
+            src={require("./8.jpg")}
+            style={{
+              width: "22rem",
+              height: "30rem",
+              margin: "1rem",
+              float: "right",
+            }}
+          ></img>
         </div>
       </div>
-      {/*react carousel*/}
+      {/*react carousel
       <Carousel style={{ marginTop: "1rem" }}>
         <Carousel.Item>
           <img alt=""
@@ -76,10 +84,9 @@ function HomePage() {
             src={require("./Capture2.PNG")}
             style={{ width: "20rem", height: "30rem" }}
           ></img>
-          {/* <Button className="ml-5 mt-n5" onClick={() => alert("clicked")}><Link href="#contactForm">Contact Us</Link></Button> */}
-        </Carousel.Item>
+            </Carousel.Item>
       </Carousel>
-
+      */}
       <hr
         style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
       ></hr>
@@ -89,46 +96,57 @@ function HomePage() {
         <Card
           style={{
             margin: "1rem",
-            width: "20rem",
+            width: "10rem",
             display: "flex",
             flexDirection: "row",
+            borderRadius: "1rem",
           }}
         >
           <Card.Img
             variant="left"
             src={require("./7.jpg")}
-            style={{ width: "13rem", height: "20rem" }}
+            style={{
+              width: "13rem",
+              height: "18rem",
+              borderTopLeftRadius: "1rem",
+              borderBottomLeftRadius: "1rem",
+            }}
           />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Find Doctors Near you</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Select Preferred doctor and book time slot that fits best for you.
             </Card.Text>
+            <Button>Start Consulting</Button>
           </Card.Body>
         </Card>
 
         <Card
           style={{
             margin: "1rem",
-            width: "20rem",
+            width: "10rem",
             display: "flex",
             flexDirection: "row",
+            borderRadius: "1rem",
           }}
         >
           <Card.Img
             variant="left"
             src={require("./7.jpg")}
-            style={{ width: "13rem", height: "20rem" }}
+            style={{
+              width: "13rem",
+              height: "18rem",
+              borderTopLeftRadius: "1rem",
+              borderBottomLeftRadius: "1rem",
+            }}
           />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Meet Doctors Online</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Tell us your health concern and we will assign a top doctor to
+              you.
             </Card.Text>
+            <Button>Start Consulting</Button>
           </Card.Body>
         </Card>
       </CardGroup>
@@ -138,8 +156,10 @@ function HomePage() {
       ></hr>
       {/*book and appointment*/}
       <div style={{ textAlign: "left", marginLeft: "7rem" }}>
-        <h3>Book an appointment for an in-clinic consultation</h3>
-        <p>Find experienced doctors across all specialties</p>
+        <h1>Book an appointment for an in-clinic consultation</h1>
+        <p style={{ fontSize: "1.5rem" }}>
+          Find experienced doctors across all specialties
+        </p>
       </div>
 
       <CardGroup className="appointment" style={{ margin: "1rem" }}>
@@ -195,7 +215,7 @@ function HomePage() {
       ></hr>
 
       {/*carousel */}
-      <Carousel style={{ color: "black", height: "30rem" }}>
+      <Carousel style={{ color: "black", height: "15rem" }}>
         <Carousel.Item>
           <div
             style={{
@@ -204,7 +224,6 @@ function HomePage() {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              paddingTop: "4rem",
             }}
           >
             <h4 style={{ color: "black", width: "30rem" }}>
@@ -222,11 +241,10 @@ function HomePage() {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              paddingTop: "4rem",
             }}
           >
             <h4 style={{ color: "black", width: "30rem" }}>
-              Very easy to use and maintain history. Thanks Appointus for making
+              Very easy to maintain medical history. Thanks Appointus for making
               it simple.
             </h4>
             <p>Ashish</p>
@@ -240,7 +258,6 @@ function HomePage() {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              paddingTop: "4rem",
             }}
           >
             <h4 style={{ color: "black", width: "30rem" }}>
@@ -254,60 +271,84 @@ function HomePage() {
       {/*about */}
       {/*Logo*/}
       <hr
-        style={{ margin: "6rem", height: 0.8, backgroundColor: "#0bb7a7" }}
+        style={{
+          marginBottom: "2rem",
+          height: 0.8,
+          backgroundColor: "#0bb7a7",
+        }}
       ></hr>
-      <footer style={{display:"flex",justifyContent:"space-around"}}>
-            <img alt="" src={require("./appointus.png")}/>
-            <div>
-              <h1>For Any Queries</h1>
-              <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4" id="contactForm">
-                    <Row>
-                        <Col>
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                        type="email"
-                        name="email"
-                        value={formikForm.values.email}
-                        onChange={formikForm.handleChange}
-                        isValid={
-                            formikForm.touched.email && !formikForm.errors.email
-                        }
-                        isInvalid={formikForm.touched.email && !!formikForm.errors.email}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {formikForm.errors.email}
-                        </Form.Control.Feedback>
-                        </Col>
-                    </Row>
-                    <br/><Row>
-                        <Col>
-                        <Form.Label>Your Message</Form.Label>
-                        <Form.Control
-                        as="textarea" rows={3}
-                        name="yourMessage"
-                        value={formikForm.values.yourMessage}
-                        onChange={formikForm.handleChange}
-                        isValid={
-                            formikForm.touched.yourMessage && !formikForm.errors.yourMessage
-                        }
-                        isInvalid={formikForm.touched.yourMessage && !!formikForm.errors.yourMessage}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {formikForm.errors.yourMessage}
-                        </Form.Control.Feedback>
-                        </Col>
-                    </Row>
-                    <br/>
-                    <Row>
-                        <Col className="d-flex justify-content-end">
-                        <Button className="font-bold" type="submit">
-                            Submit
-                        </Button>
-                        </Col>
-                    </Row>
-                  </Form>
-              
-            </div>
+      <footer
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        <img
+          alt=""
+          src={require("./appointus.png")}
+          style={{ padding: "3rem" }}
+        />
+        <div>
+          <h1>For Any Queries</h1>
+          <Form
+            noValidate
+            onSubmit={formikForm.handleSubmit}
+            className="mt-4"
+            id="contactForm"
+          >
+            <Row>
+              <Col>
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  value={formikForm.values.email}
+                  onChange={formikForm.handleChange}
+                  isValid={formikForm.touched.email && !formikForm.errors.email}
+                  isInvalid={
+                    formikForm.touched.email && !!formikForm.errors.email
+                  }
+                />
+                <Form.Control.Feedback type="invalid">
+                  {formikForm.errors.email}
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <Form.Label>Your Message</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  name="yourMessage"
+                  value={formikForm.values.yourMessage}
+                  onChange={formikForm.handleChange}
+                  isValid={
+                    formikForm.touched.yourMessage &&
+                    !formikForm.errors.yourMessage
+                  }
+                  isInvalid={
+                    formikForm.touched.yourMessage &&
+                    !!formikForm.errors.yourMessage
+                  }
+                />
+                <Form.Control.Feedback type="invalid">
+                  {formikForm.errors.yourMessage}
+                </Form.Control.Feedback>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col className="d-flex justify-content-end">
+                <Button className="font-bold" type="submit">
+                  Submit
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </div>
       </footer>
     </div>
   );
