@@ -1,13 +1,29 @@
-import React from 'react';
-import SignupCard from './SignUpCard';
+import React from "react";
+import SignupCard from "./SignUpCard";
 
 function Signup() {
   // Logic for future use
   // const [LoginType, setLoginType] = useState("login")
   return (
     <>
-      <br/>
-      <SignupCard />
+      <div
+        className="image-part"
+        style={{
+          display: "flex",
+          // gridTemplateColumns: "auto auto",
+          alignItems: "center",
+          alignContent: "space-around",
+          justifyContent: "space-around",
+          margin: "0rem 1rem 0rem 1rem",
+        }}
+      >
+        <SignupCard />
+        <img
+          alt=""
+          src={require("./steps.png")}
+          style={{ height: "40rem", width: "40rem" }}
+        ></img>
+      </div>
     </>
   );
 }

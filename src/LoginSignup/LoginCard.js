@@ -58,7 +58,7 @@ const LoginCard = () => {
 
   return (
     <>
-        <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '25rem' }}>
+        <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '25rem',width:'25rem',height:"25rem" }}>
             <Card.Body>
                 <Card.Title>Login</Card.Title>
                 <Form noValidate onSubmit={formikForm.handleSubmit} className="mt-4">
