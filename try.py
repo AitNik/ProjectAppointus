@@ -1,0 +1,2 @@
+msg="good"
+print(msg)
