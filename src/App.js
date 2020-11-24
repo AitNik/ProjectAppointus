@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./App.scss";
 import AppNavbar from './components/AppNavbar';
 import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
@@ -28,6 +28,32 @@ function App(props) {
     )
   }
 
+  const ProtectedRoute2 = ({ component: Component, ...rest }) => {
+    return (
+            <Route
+                {...rest}
+                render={prop => {
+                    if(props.logged_in){
+                        return <Redirect to='/home' />
+                    } 
+                    else{
+                        return <Component {...prop} />
+                    }
+                }}
+            />
+    )
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("projecttoken");
+    if(token === "qwertyuiopqwertyuiop")
+    {
+      props.dispatch({
+        type: "LOGIN"
+      });
+    }
+  })
+
   return (
     <Router>
           <AppNavbar className="navbar" />
@@ -35,8 +61,8 @@ function App(props) {
       
       
         <Switch>
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Signup} />
+          <ProtectedRoute2 exact path='/login' component={Login} />
+          <ProtectedRoute2 exact path='/signup' component={Signup} />
           <Route exact path='/home' component={HomePage} />
           <ProtectedRoute exact path='/booknow' component={BookNow} />
           <Route exact path='/client' component={Client} />

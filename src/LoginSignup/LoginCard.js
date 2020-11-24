@@ -5,10 +5,11 @@ import { Button, Col, Form, Row, Card} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {DJANGO_SERVER_ADDRESS} from '../server'
 import axios from 'axios'
+import { connect} from 'react-redux'
 
 
 
-const LoginCard = () => {
+const LoginCard = (props) => {
 
   const formValidationSchema = Yup.object().shape({
     userName: Yup.string()
@@ -36,7 +37,8 @@ const LoginCard = () => {
   const validateUser = () => {
     var data = JSON.stringify({
         "username": formikForm.values.userName,
-        "password": formikForm.values.userPassword
+        "password": formikForm.values.userPassword,
+        "adhaarcard": "12353412344321"
     });
 
     var config = {
@@ -49,10 +51,20 @@ const LoginCard = () => {
     axios(config)
     .then((resp) => {
         console.log(resp);
+        if(resp===1){
+            localStorage.setItem("projecttoken","qwertyuiopqwertyuiop");
+            props.dispatch({
+                type: "LOGIN"
+            });
+        }
+        else if(resp===0){
+            alert("Invalid Password")
+        }
     })
     .catch((error) => {
         console.error(error);
         alert("Login Failed")
+        localStorage.clear("projecttoken","qwertyuiopqwertyuiop");
     })
   }
 
@@ -122,4 +134,10 @@ const LoginCard = () => {
   );
 }
 
-export default LoginCard;
+const mapStateToProps = (state) => {
+    return {
+      logged_in: state.login.logged_in
+    };
+  };
+  
+  export default connect(mapStateToProps)(LoginCard);

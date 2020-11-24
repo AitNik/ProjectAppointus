@@ -50,14 +50,15 @@ const SignupCard = () => {
     var data = JSON.stringify({
         "username": formikForm.values.userName,
         "name": formikForm.values.name,
-        "mobileNo": formikForm.values.mobile,
+        "mobile_no": formikForm.values.mobile,
         "email": formikForm.values.email,
-        "password": formikForm.values.password
+        "password": formikForm.values.password,
+        "adhaarcard": "12353412344321"
     });
 
     var config = {
         method: 'post',
-        url: `${DJANGO_SERVER_ADDRESS}/signup/`,
+        url: `${DJANGO_SERVER_ADDRESS}/user_register/`,
         headers:{'Content-Type':'application/json'},
         data : data
     };
@@ -65,10 +66,16 @@ const SignupCard = () => {
     axios(config)
     .then((resp) => {
         console.log(resp);
+        if(resp===1){
+            alert("User Created Successfully");
+        }
+        else if(resp===0){
+            alert("Failed to create user");
+        }
     })
     .catch((error) => {
         console.error(error);
-        alert("Login Failed")
+        alert("Connection Failed")
     })
   }
 
@@ -118,7 +125,7 @@ const SignupCard = () => {
                         <Col>
                         <Form.Label>Mobile Number</Form.Label>
                         <Form.Control
-                        type="number"
+                        type="text"
                         name="mobile"
                         value={formikForm.values.mobile}
                         onChange={formikForm.handleChange}

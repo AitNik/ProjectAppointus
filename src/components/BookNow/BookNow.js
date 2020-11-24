@@ -1,7 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import {Link} from 'react-router-dom'
 import { Button, Col, Form, Row, Card } from "react-bootstrap";
+import {DJANGO_SERVER_ADDRESS} from '../../server'
+import {axios} from 'axios'
 
 const CategoryOptions = [
   { key: "Select", value: "" },
@@ -36,8 +39,43 @@ const BookNow = () => {
     validationSchema: formValidationSchema,
     onSubmit: (values) => {
       console.log("BookNow form Submitted");
-    },
+      bookingForm();
+    }
+  })
+
+const bookingForm = () => {
+  var data = JSON.stringify({
+      "username": "pawan",
+      "name": formikForm.values.name,
+      "mobile_no": formikForm.values.mobile,
+      "email": formikForm.values.email,
+      "aadhar_card": "12353412344321",
+      "category": formikForm.values.category,
+      "issue": formikForm.values.details
   });
+
+  var config = {
+      method: 'post',
+      url: `${DJANGO_SERVER_ADDRESS}/booking_in_form/`,
+      headers:{'Content-Type':'application/json'},
+      data : data
+  };
+  
+  axios(config)
+  .then((resp) => {
+      console.log(resp);
+      if(resp===1){
+          alert("Booked");
+      }
+      else if(resp===0){
+          alert("Failed");
+      }
+  })
+  .catch((error) => {
+      console.error(error);
+      alert("Connection Failed")
+  })
+}
 
   return (
     <>
@@ -80,7 +118,7 @@ const BookNow = () => {
                   <Col>
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control
-                      type="number"
+                      type="text"
                       name="mobile"
                       value={formikForm.values.mobile}
                       onChange={formikForm.handleChange}
@@ -175,7 +213,7 @@ const BookNow = () => {
               <Card.Text>
                 Already booked? <br />
                 Go to
-                <Card.Link href='/mybookings'> My Bookings</Card.Link>
+                <Link to='/mybookings'> My Bookings</Link>
               </Card.Text>
             </Card.Body>
           </Card>

@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux'
 const login = {
         logged_in: true,
-        name: "Anutosh Kumar",
+        name: "Sai Pawan Kumar",
         username: "123456",  
 }
 
