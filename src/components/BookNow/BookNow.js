@@ -40,7 +40,7 @@ const BookNow = () => {
     },
     validationSchema: formValidationSchema,
     onSubmit: (values) => {
-      console.log("BookNow form Submitted",values);
+      console.log("BookNow form Submitted", values);
       bookingForm();
     }
   })

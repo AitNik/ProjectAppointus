@@ -7,8 +7,20 @@ import BookingCard from "../BookingCard"
 function MyBooking() {
 
   const token = localStorage.getItem("projecttokenUsername");
-  const [booked,setBooked] = useState([]);
-
+  const [booked,setBooked] = useState([
+    {
+        "name": "pawan",
+        "email": "a@gmail.com",
+        "phone_no": "1234567890",
+        "aadhar_card": "123443211234",
+        "category": "dentist",
+        "issue": "tooth decay",
+        "your_status": 1,
+        "doctor_status": 1,
+        "treatment": true
+    }
+]);
+  
   useEffect(() => {
     var data = JSON.stringify({
         "username": token

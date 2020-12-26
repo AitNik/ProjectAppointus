@@ -1,7 +1,6 @@
 import React from 'react';
 import brandIcon from "../assets/Images/brandIcon.png"
 import { Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 function AppNavbar(props) {
@@ -28,48 +27,22 @@ function AppNavbar(props) {
               props.logged_in ? 
               (
                 <>
-                  <Link to='/booknow' className="mr-2 ml-2">Book Now</Link>
-                  <Link to='/mybookings' className="mr-2 ml-2">My Bookings</Link>
+                  <Nav.Link href='/booknow' className="mr-2 ml-2">Book Now</Nav.Link>
+                  <Nav.Link href='/mybookings' className="mr-2 ml-2">My Bookings</Nav.Link>
                 </>
               ) : null
             }
-            <Link to='/aboutus' className="mr-2 ml-2">About us</Link>
+            <Nav.Link href='/aboutus' className="mr-2 ml-2">About us</Nav.Link>
           </Nav>
           {
             props.logged_in ? 
-              <div className="pl-0">{props.name}</div> :
-              <Link to='/login' className="pl-0">Login / Signup</Link>
+              <div className="pl-0" styles="max-width: 15vw">{props.name}</div> :
+              <Nav.Link href='/login' className="pl-0">Login / Signup</Nav.Link>
           }
         </Navbar.Collapse>
     </Navbar>
     <br/>
   </>
-    // <div >
-    //  {/* <p>Hi! This is AppNavbar component</p> */}
-    //     <Row>
-    //       <Router>
-    //       <Link to='/loginsignup'>
-    //         <Button variant="outline-primary">loginsignup</Button>
-    //     </Link>
-
-    //     <Link to='/home'>
-    //         <Button variant="outline-primary">home</Button>
-    //     </Link>
-
-    //     <Link to='/bookhere'>
-    //         <Button variant="outline-primary">bookhere</Button>
-    //     </Link>
-
-    //     <Link to='/client'>
-    //         <Button variant="outline-primary">client</Button>
-    //     </Link>
-
-    //     <Link to='/mybookings'>
-    //         <Button variant="outline-primary">mybookings</Button>
-    //     </Link>
-    //       </Router>
-    //     </Row>
-    // </div>
   );
 }
 

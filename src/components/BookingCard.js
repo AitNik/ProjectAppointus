@@ -6,7 +6,7 @@ import {  Card, Accordion} from 'react-bootstrap'
 
 
 
-const BookingCard = () => {
+const BookingCard = (props) => {
 
 
 
@@ -28,10 +28,16 @@ const BookingCard = () => {
         <Accordion defaultActiveKey="1">
         <Card style={{ minWidth:'14rem', maxWidth: '18rem' }} className="mx-auto mt-2 mb-2 ml-1 mr-1">
             <Accordion.Toggle as={Card.Header} eventKey="0">
-            Click me!
+            {props.data.category} {props.data.treatment?"(Upcoming)":"(Expired)"}
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
-            <Card.Body>Hello! I'm the body</Card.Body>
+            <Card.Body>
+              <p>Running token: {props.data.doctor_status}</p>
+              <p>Your token: {props.data.your_status}</p>
+              <p>Issue: {props.data.issue}</p>
+              <p>Patient Name: {props.data.name}</p>
+              <p>Phone No: {props.data.phone_no}</p>
+            </Card.Body>
             </Accordion.Collapse>
         </Card>
         </Accordion>
