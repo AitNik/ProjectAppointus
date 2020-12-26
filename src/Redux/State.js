@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux'
 const token = localStorage.getItem("projecttokenUsername");
 
 const login = {
-    logged_in: false,
+    logged_in: true,
     name: token,
     username: "123456",  
 }
