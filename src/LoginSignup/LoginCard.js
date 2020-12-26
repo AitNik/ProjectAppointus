@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import {DJANGO_SERVER_ADDRESS} from '../server'
 import axios from 'axios'
 import { connect} from 'react-redux'
 
 
-
 const LoginCard = (props) => {
+
+    const [varia,setVaria] = useState('hello');
 
   const formValidationSchema = Yup.object().shape({
     userName: Yup.string()
@@ -53,9 +54,13 @@ const LoginCard = (props) => {
         console.log(resp);
         if(resp===1){
             localStorage.setItem("projecttoken","qwertyuiopqwertyuiop");
+            localStorage.setItem("projecttokenUsername",formikForm.values.userName);
             props.dispatch({
                 type: "LOGIN"
-            });
+            },
+                setVaria("Hello1")
+            );
+
         }
         else if(resp===0){
             alert("Invalid Password")
@@ -69,6 +74,8 @@ const LoginCard = (props) => {
   }
 
   return (
+    varia==="Hello1" ? 
+    <Redirect to="/login" />  :
     <>
         <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '25rem',width:'25rem',height:"25rem" }}>
             <Card.Body>

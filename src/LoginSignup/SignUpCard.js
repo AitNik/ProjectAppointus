@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button, Col, Form, Row, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {DJANGO_SERVER_ADDRESS} from '../server'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 
 
 const SignupCard = () => {
     
+    const [varia,setVaria] = useState('hello');
 
   const formValidationSchema = Yup.object({
         userName: Yup.string()
@@ -68,19 +70,23 @@ const SignupCard = () => {
         console.log(resp);
         if(resp===1){
             alert("User Created Successfully");
+            setVaria("Hello1")
         }
         else if(resp===0){
             alert("Failed to create user");
         }
     })
     .catch((error) => {
-        console.error(error);
-        alert("Connection Failed")
+        console.error("errrrr",error);
     })
   }
 
+  
   return (
+    varia==="Hello1" ? 
+    <Redirect to="/login" />  :
     <>
+    {console.log("thfk",varia)}
         <Card className="mx-auto rounded-lg" style={{ minWidth:'12rem', maxWidth: '30rem',width:"25rem" }}>
             <Card.Body>
                 <Card.Title>Sign Up</Card.Title>

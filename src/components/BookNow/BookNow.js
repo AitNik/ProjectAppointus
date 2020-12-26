@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 import { Button, Col, Form, Row, Card } from "react-bootstrap";
 import {DJANGO_SERVER_ADDRESS} from '../../server'
 import {axios} from 'axios'
+import { connect} from 'react-redux'
+
 
 const CategoryOptions = [
   { key: "Select", value: "" },
@@ -25,7 +27,7 @@ const BookNow = () => {
       .max(10, "Must be exactly 10 digits"),
     email: Yup.string().email("Invalid email").required("Required"),
     category: Yup.string().required("Required"),
-    details: Yup.string().required("Required"),
+    // details: Yup.string().required("Required"),
   });
 
   const formikForm = useFormik({
@@ -38,14 +40,16 @@ const BookNow = () => {
     },
     validationSchema: formValidationSchema,
     onSubmit: (values) => {
-      console.log("BookNow form Submitted");
+      console.log("BookNow form Submitted",values);
       bookingForm();
     }
   })
 
+  const token = localStorage.getItem("projecttokenUsername");
+
 const bookingForm = () => {
   var data = JSON.stringify({
-      "username": "pawan",
+      "username": token,
       "name": formikForm.values.name,
       "mobile_no": formikForm.values.mobile,
       "email": formikForm.values.email,
@@ -224,4 +228,10 @@ const bookingForm = () => {
   );
 };
 
-export default BookNow;
+const mapStateToProps = (state) => {
+  return {
+    logged_in: state.login.logged_in
+  };
+};
+
+export default connect(mapStateToProps)(BookNow);
