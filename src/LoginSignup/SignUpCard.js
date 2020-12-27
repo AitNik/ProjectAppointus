@@ -60,19 +60,19 @@ const SignupCard = () => {
 
     var config = {
         method: 'post',
-        url: `${DJANGO_SERVER_ADDRESS}/user_register/`,
+        url: `${DJANGO_SERVER_ADDRESS}/register/`,
         headers:{'Content-Type':'application/json'},
         data : data
     };
     
     axios(config)
     .then((resp) => {
-        console.log(resp);
-        if(resp===1){
+        console.log(resp.data);
+        if(resp.data===1){
             alert("User Created Successfully");
             setVaria("Hello1")
         }
-        else if(resp===0){
+        else if(resp.data===0){
             alert("Failed to create user");
         }
     })

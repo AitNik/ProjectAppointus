@@ -1,1 +1,1 @@
-export const DJANGO_SERVER_ADDRESS = "http://54.91.71.140:8080"
+export const DJANGO_SERVER_ADDRESS = "http://127.0.0.1:8000"

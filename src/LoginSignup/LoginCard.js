@@ -51,8 +51,8 @@ const LoginCard = (props) => {
     
     axios(config)
     .then((resp) => {
-        console.log(resp);
-        if(resp===1){
+        console.log(resp.data);
+        if(resp.data===1){
             localStorage.setItem("projecttoken","qwertyuiopqwertyuiop");
             localStorage.setItem("projecttokenUsername",formikForm.values.userName);
             props.dispatch({
@@ -62,7 +62,7 @@ const LoginCard = (props) => {
             );
 
         }
-        else if(resp===0){
+        else if(resp.data===0){
             alert("Invalid Password")
         }
     })
