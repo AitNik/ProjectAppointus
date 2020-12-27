@@ -60,20 +60,21 @@ const bookingForm = () => {
 
   var config = {
       method: 'post',
-      url: `${DJANGO_SERVER_ADDRESS}/booking_in_form/`,
+      url: `${DJANGO_SERVER_ADDRESS}/post_bookings/`,
       headers:{'Content-Type':'application/json'},
       data : data
   };
   
   axios(config)
   .then((resp) => {
-      console.log(resp);
-      if(resp===1){
-          alert("Booked");
-      }
-      else if(resp===0){
-          alert("Failed");
-      }
+      // console.log(resp);
+      // if(resp===1){
+      //     alert("Booked");
+      // }
+      // else if(resp===0){
+      //     alert("Failed");
+      // }
+      alert("!!! Successfully Booked !!!")
   })
   .catch((error) => {
       console.error(error);

@@ -33,16 +33,17 @@ function AppNavbar(props) {
               ) : null
             }
             <Nav.Link href='/aboutus' className="mr-2 ml-2">About us</Nav.Link>
-            <NavDropdown title="User Name"  variant="dark" bg="dark">
-              <NavDropdown.Item href="#action/3.1">Action 1</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Action 2</NavDropdown.Item>
-            </NavDropdown>            
+                       
             
           </Nav>
           {
             props.logged_in ? 
-              <div className="pl-0" styles="max-width: 15vw">{props.name}</div> :
+            <NavDropdown title={props.name}  variant="dark" bg="dark">
+              <NavDropdown.Item onClick={() => localStorage.clear("projecttoken","qwertyuiopqwertyuiop")}>Logout</NavDropdown.Item>
+              <NavDropdown.Divider />
+              {/* <NavDropdown.Item href="#action/3.4">Action 2</NavDropdown.Item> */}
+            </NavDropdown> :
+              // <div className="pl-0" styles="max-width: 15vw">{props.name}</div> :
               <Nav.Link href='/login' className="pl-0">Login / Signup</Nav.Link>
           }
          

@@ -27,20 +27,20 @@ function MyBooking() {
     });
 
     var config = {
-        method: 'put',
-        url: `${DJANGO_SERVER_ADDRESS}/booking/`,
+        method: 'post',
+        url: `${DJANGO_SERVER_ADDRESS}/get_bookings/`,
         headers:{'Content-Type':'application/json'},
         data : data
     };
     
     axios(config)
     .then((resp) => {
-      setBooked(resp);
+      setBooked(resp.data);
     })
     .catch((error) => {
         console.error(error);
     })
-  })
+  }, [])
 
   return (
     <>
