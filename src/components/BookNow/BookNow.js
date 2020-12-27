@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import {Link} from 'react-router-dom'
 import { Button, Col, Form, Row, Card } from "react-bootstrap";
 import {DJANGO_SERVER_ADDRESS} from '../../server'
-import {axios} from 'axios'
+import axios from 'axios'
 import { connect} from 'react-redux'
 
 
