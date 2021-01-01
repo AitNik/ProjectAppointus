@@ -28,7 +28,7 @@ const BookingCard = (props) => {
         <Accordion defaultActiveKey="1">
         <Card style={{ minWidth:'14rem', maxWidth: '18rem' }} className="mx-auto mt-2 mb-2 ml-1 mr-1">
             <Accordion.Toggle as={Card.Header} eventKey="0">
-            {props.data.category} {props.data.treatment?"(Upcoming)":"(Expired)"}
+            {props.data.category} {!props.data.treatment?"(Upcoming)":"(Expired)"}
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
             <Card.Body>

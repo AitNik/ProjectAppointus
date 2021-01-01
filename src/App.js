@@ -61,12 +61,12 @@ function App(props) {
       
       
         <Switch>
-          <ProtectedRoute2 exact path='/login' component={Login} />
-          <ProtectedRoute2 exact path='/signup' component={Signup} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
           <Route exact path='/home' component={HomePage} />
-          <ProtectedRoute exact path='/booknow' component={BookNow} />
+          <Route exact path='/booknow' component={BookNow} />
           <Route exact path='/client' component={Client} />
-          <ProtectedRoute exact path='/mybookings' component={MyBookings} />
+          <Route exact path='/mybookings' component={MyBookings} />
 
           <Route path='*'>
               <Redirect to='/home' />
